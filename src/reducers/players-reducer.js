@@ -1,6 +1,6 @@
 const initialState = {
   players: [],
-  playerDetailsInfo: []
+  searchStatus: 0
 }
 
 const playersReducer = (state = initialState, action) => {
@@ -8,11 +8,18 @@ const playersReducer = (state = initialState, action) => {
     case 'FIND_ALL_PLAYERS':
       return {
         ...state,
-        players: action.allPlayers.elements
+        players: action.allPlayers.elements,
+        searchStatus: 1
       }
     case 'FIND_PLAYERS_BY_NAME':
       return {
-        players: action.playersByName
+        players: action.playersByName,
+        searchStatus: 1
+      }
+    case 'PLAYER_NOT_FOUND':
+      return {
+        players: [],
+        searchStatus: -1
       }
     case 'FIND_PLAYERS_BY_POINTS':
     case 'FIND_PLAYERS_BY_POSITION':

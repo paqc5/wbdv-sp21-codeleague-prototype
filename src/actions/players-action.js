@@ -16,8 +16,13 @@ export const findPlayerByName = (dispatch, infoNameOne, infoNameTwo) =>
         }
         return false
       })
-
-      dispatch({ type: 'FIND_PLAYERS_BY_NAME', playersByName: rs })
+      
+      if(rs.length === 0) {
+        console.log(rs)
+        dispatch({ type: 'PLAYER_NOT_FOUND'})
+      } else {
+        dispatch({ type: 'FIND_PLAYERS_BY_NAME', playersByName: rs })
+      }
     })
 
 const playersActions = {
