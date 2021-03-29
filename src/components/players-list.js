@@ -14,7 +14,6 @@ const PlayersList = ({
 
   return (
     <div className={`paqc-players-list ${searchStatus === 0 ? 'border-0' : ''}`}>
-      {console.log(searchStatus)}
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
           {searchStatus === -1 && <p className="mb-0">Player Not Found</p>}
