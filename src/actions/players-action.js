@@ -2,8 +2,8 @@ import playersService from '../services/players-service'
 
 export const findAllPlayers = (dispatch) =>
   playersService.findAllPlayers()
-    .then(response =>
-      dispatch({ type: 'FIND_ALL_PLAYERS', allPlayers: response }))
+    .then(response => 
+      dispatch({ type: 'FIND_ALL_PLAYERS', allPlayers: response.elements }))
 
 export const findPlayerByName = (dispatch, infoNameOne, infoNameTwo) =>
   playersService.findAllPlayers()
@@ -18,7 +18,6 @@ export const findPlayerByName = (dispatch, infoNameOne, infoNameTwo) =>
       })
       
       if(rs.length === 0) {
-        console.log(rs)
         dispatch({ type: 'PLAYER_NOT_FOUND'})
       } else {
         dispatch({ type: 'FIND_PLAYERS_BY_NAME', playersByName: rs })

@@ -7,8 +7,7 @@ const playersReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FIND_ALL_PLAYERS':
       return {
-        ...state,
-        players: action.allPlayers.elements,
+        players: action.allPlayers,
         searchStatus: 1
       }
     case 'FIND_PLAYERS_BY_NAME':
