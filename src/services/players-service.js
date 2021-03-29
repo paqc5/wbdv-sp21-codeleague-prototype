@@ -2,8 +2,11 @@ const API_URL = "https://fantasy.premierleague.com/api/bootstrap-static/"
 
 export const findAllPlayers = () => {
   return (
-    fetch(`${API_URL}`, {mode:'no-cors'})
-      .then(response => response.json())
+    fetch(`${API_URL}`)
+      .then(response => {
+        console.log(response)
+        response.json()
+      })
   )
 }
 
