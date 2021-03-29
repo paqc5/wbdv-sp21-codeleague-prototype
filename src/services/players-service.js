@@ -1,9 +1,12 @@
-const API_URL = process.env.REACT_APP_FPL_URL
-// const API_URL = "http://localhost:8080/https://fantasy.premierleague.com/api/bootstrap-static/"
+const API_URL = "https://codeleague-cors-proxy.herokuapp.com/"
 
 export const findAllPlayers = () => {
   return (
-    fetch(`${API_URL}`)
+    fetch(`${API_URL}`, 
+    {
+      method: 'GET',
+      headers: { 'target-url': 'https://fantasy.premierleague.com/api/bootstrap-static/' }
+    })
       .then(response => response.json())
   )
 }

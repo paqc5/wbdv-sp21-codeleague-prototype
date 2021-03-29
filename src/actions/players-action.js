@@ -2,12 +2,14 @@ import playersService from '../services/players-service'
 
 export const findAllPlayers = (dispatch) =>
   playersService.findAllPlayers()
-    .then(response => 
-      dispatch({ type: 'FIND_ALL_PLAYERS', allPlayers: response.elements }))
+    .then(response => {
+      console.log(response)
+      dispatch({ type: 'FIND_ALL_PLAYERS', allPlayers: response.elements })})
 
 export const findPlayerByName = (dispatch, infoNameOne, infoNameTwo) =>
   playersService.findAllPlayers()
     .then(response => {
+      console.log(response)
       let rs = response.elements.filter(player => {
         let firstName = player.first_name !== undefined ? player.first_name.toLowerCase() : ""
         let lastName = player.second_name !== undefined ? player.second_name.toLowerCase() : ""
